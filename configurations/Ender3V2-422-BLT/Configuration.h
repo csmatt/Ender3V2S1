@@ -98,7 +98,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000  // MRiscoC increase serial performace
+#define BAUDRATE 115200  // MRiscoC increase serial performace
 
 #define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate  // MRiscoC Enables change the baudrate
 
@@ -1710,7 +1710,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -41.5, -7, 0 } // (mm) X, Y, Z distance from Nozzle tip to Probe trigger-point  // MRiscoC BLTouch offset for support: https://www.thingiverse.com/thing:4605354 (z-offset = -1.80 mm)
+#define NOZZLE_TO_PROBE_OFFSET { -37, -8, -2.06 } // (mm) X, Y, Z distance from Nozzle tip to Probe trigger-point  // MRiscoC BLTouch offset for support: https://www.thingiverse.com/thing:4605354 (z-offset = -1.80 mm)
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1801,7 +1801,7 @@
 #define Z_CLEARANCE_BETWEEN_PROBES  5 // (mm) Z Clearance between probe points  // MRiscoC Increase probe compatibility
 #define Z_CLEARANCE_MULTI_PROBE     5 // (mm) Z Clearance between multiple probes  // MRiscoC Increase speed
 #define Z_PROBE_ERROR_TOLERANCE     3 // (mm) Tolerance for early trigger (<= -probe.offset.z + ZPET)
-//#define Z_AFTER_PROBING           5 // (mm) Z position after probing is done
+#define Z_AFTER_PROBING           5 // (mm) Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -3 // (mm) Farthest distance below the trigger-point to go before stopping  // MRiscoC allows reach lower points
 
@@ -1913,10 +1913,10 @@
  */
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
-//#define Z_CLEARANCE_FOR_HOMING  10   // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...  // MRiscoC Crearance over the bed
+#define Z_CLEARANCE_FOR_HOMING  10   // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...  // MRiscoC Crearance over the bed
                                       // You'll need this much clearance above Z_MAX_POS to avoid grinding.
 
-//#define Z_AFTER_HOMING         5   // (mm) Height to move to after homing (if Z was homed)  // MRiscoC Crearance over the bed
+#define Z_AFTER_HOMING         5   // (mm) Height to move to after homing (if Z was homed)  // MRiscoC Crearance over the bed
 //#define XY_AFTER_HOMING { 10, 10 }  // (mm) Move to an XY position after homing (and raising Z)
 
 //#define EVENT_GCODE_AFTER_HOMING "M300 P440 S200"  // Commands to run after G28 (and move to XY_AFTER_HOMING)
@@ -2203,7 +2203,7 @@
 /**
  * Auto-leveling needs preheating
  */
-#define PREHEAT_BEFORE_LEVELING  // MRiscoC Heatting to compensate thermal expansions
+//#define PREHEAT_BEFORE_LEVELING  // MRiscoC Heatting to compensate thermal expansions
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
   #define LEVELING_NOZZLE_TEMP   0   // (°C) Only applies to E0 at this time  // MRiscoC No necessary for BLTouch
   #define LEVELING_BED_TEMP     50
@@ -2547,8 +2547,8 @@
 #define PREHEAT_1_FAN_SPEED     128 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED     90
+#define PREHEAT_2_TEMP_HOTEND 260
+#define PREHEAT_2_TEMP_BED     95
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     128 // Value from 0 to 255
 

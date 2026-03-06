@@ -1,0 +1,3 @@
+- copy Configuration.h and Configuration_adv.h to Marlin directory from configurations/Ender3V2-422-BLT
+- in vscode terminal: platformio run -e STM32F103RC_creality
+- in host terminal: docker cp 5a25135a5d56:/workspaces/Ender3V2/.pio/build/STM32F103RC_creality/firmware-20260227-212318.bin .
